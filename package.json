@@ -1,0 +1,30 @@
+{
+  "name": "multinet-components",
+  "version": "0.0.1",
+  "description": "UI components for MultiNet",
+  "repository": "https://github.com/multinet-app/multinet-components",
+  "author": "Visualization Design Lab <vdl.sci.utah.edu>",
+  "main": "dist/library.js",
+  "module": "dist/library.mjs",
+  "files": [
+    "dist/*"
+  ],
+  "peerDependencies": {
+    "vue-template-compiler": "^2.7.9",
+    "vue": "^2.7.0",
+    "vuetify": "^2.6.9"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.2.37",
+    "rollup": "^2.78.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-vue": "^6.0.0",
+    "rollup-plugin-vuetify": "^0.2.4",
+    "vue-template-compiler": "^2.7.9",
+    "vue": "^2.7.0",
+    "vuetify": "^2.6.9"
+  },
+  "scripts": {
+    "build": "rollup -c"
+  }
+}
