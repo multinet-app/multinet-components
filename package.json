@@ -4,27 +4,32 @@
   "description": "UI components for MultiNet",
   "repository": "https://github.com/multinet-app/multinet-components",
   "author": "Visualization Design Lab <vdl.sci.utah.edu>",
-  "main": "dist/library.js",
-  "module": "dist/library.mjs",
+  "main": "dist/multinet-components.js",
+  "module": "dist/multinet-components.mjs",
   "files": [
     "dist/*"
   ],
+  "typings": "./dist/main.d.ts",
   "peerDependencies": {
-    "vue-template-compiler": "^2.7.9",
+    "@girder/oauth-client": "^0.7.7",
+    "multinet": "^0.21.7",
     "vue": "^2.7.0",
     "vuetify": "^2.6.9"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.2.37",
-    "rollup": "^2.78.1",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-vue": "^6.0.0",
-    "rollup-plugin-vuetify": "^0.2.4",
-    "vue-template-compiler": "^2.7.9",
+    "@girder/oauth-client": "^0.7.7",
+    "@types/node": "^18.7.13",
+    "@vitejs/plugin-vue2": "^1.1.2",
+    "multinet": "^0.21.7",
+    "typescript": "^4.0.0",
+    "unplugin-vue-components": "^0.22.4",
+    "vite": "^3.0.0",
+    "vite-plugin-vue2": "^2.0.0",
     "vue": "^2.7.0",
-    "vuetify": "^2.6.9"
+    "vue-template-compiler": "^2.7.9",
+    "vue-tsc": "^0.40.0"
   },
   "scripts": {
-    "build": "rollup -c"
+    "build": "vite build && vue-tsc --emitDeclarationOnly"
   }
 }
