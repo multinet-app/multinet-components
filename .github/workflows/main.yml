@@ -24,6 +24,9 @@ jobs:
           node-version: '16'
           cache: yarn
 
+      - name: Install yarn packages (from cache if available)
+        run: yarn
+
       - name: Create a production build
         run: yarn build
 
