@@ -18,8 +18,8 @@
               <div>Choose a random subset of nodes</div>
               <v-slider
                 v-model="subsetAmount"
-                :max="100"
-                :min="10"
+                :max="maxSubsetSize"
+                :min="minSubsetSize"
                 step="10"
                 ticks
                 thumb-label
