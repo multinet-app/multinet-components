@@ -8,13 +8,20 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     LoginMenu: typeof import('./src/components/LoginMenu.vue')['default']
+    NetworkSubsetter: typeof import('./src/components/NetworkSubsetter.vue')['default']
     VAvatar: typeof import('vuetify/lib')['VAvatar']
     VBtn: typeof import('vuetify/lib')['VBtn']
     VCard: typeof import('vuetify/lib')['VCard']
+    VCardText: typeof import('vuetify/lib')['VCardText']
+    VCardTitle: typeof import('vuetify/lib')['VCardTitle']
+    VDivider: typeof import('vuetify/lib')['VDivider']
     VIcon: typeof import('vuetify/lib')['VIcon']
     VList: typeof import('vuetify/lib')['VList']
     VListItem: typeof import('vuetify/lib')['VListItem']
     VListItemAction: typeof import('vuetify/lib')['VListItemAction']
     VMenu: typeof import('vuetify/lib')['VMenu']
+    VOverlay: typeof import('vuetify/lib')['VOverlay']
+    VRow: typeof import('vuetify/lib')['VRow']
+    VSlider: typeof import('vuetify/lib')['VSlider']
   }
 }
