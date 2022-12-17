@@ -62,15 +62,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watchEffect, watch } from 'vue';
-import { Store } from '../types';
+import { computed, ref, watchEffect } from 'vue';
 import OAuthClient from '@girder/oauth-client';
 import { UserSpec } from 'multinet';
 
 const props = defineProps<{
-  store: Store;
-  oauthClient: OAuthClient;
   userInfo: UserSpec | null;
+  oauthClient: OAuthClient;
+  logout: () => Promise<void>;
+  fetchUserInfo: () => Promise<void>;
 }>();
 
 const menu = ref(false);
@@ -86,7 +86,7 @@ watchEffect(() => {
 
 async function logout() {
   // Perform the logout action,
-  await props.store.dispatch.logout();
+  await props.logout();
 
   // Redirect the user to the home page.
   // This is to prevent the logged-out user from continuing to look at, e.g.,
@@ -99,7 +99,7 @@ function login() {
 }
 
 // Get user info on created
-props.store.dispatch.fetchUserInfo();
+props.fetchUserInfo();
 </script>
 
 <style scoped>
