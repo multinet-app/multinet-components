@@ -1,5 +1,5 @@
-import { LoadError, Network } from "../types";
-import { multinetApi } from "multinet";
+import { LoadError, Network } from '../types';
+import { multinetApi } from 'multinet';
 
 export async function subsetNetwork(
   workspaceName: string,
