@@ -18,7 +18,6 @@ export async function subsetNetwork(
   let newAQLNetwork: Network = { nodes: [], edges: []};
 
   try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     newAQLNetwork = (await api.aql(workspaceName, { query: aqlQuery, bind_vars: {} }) as Network[])[0];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
