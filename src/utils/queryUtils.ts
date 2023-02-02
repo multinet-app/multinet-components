@@ -11,14 +11,18 @@ export async function subsetNetwork(
   networkName: string,
   api: ReturnType<typeof multinetApi>
 ) {
-  const aqlQuery = `let nodes = (FOR n in [${nodeTableNames}][**] LIMIT ${subsetAmount} RETURN n) let edges = (FOR e in ${edgeTableName} filter e._from in nodes[**]._id && e._to in nodes[**]._id RETURN e)
+  const aqlQuery = `let nodes = (FOR n in [${nodeTableNames.map((val, index) => `@@table${index}`).join(', ')}][**] LIMIT ${subsetAmount} RETURN n) let edges = (FOR e in @@edgeTable filter e._from in nodes[**]._id && e._to in nodes[**]._id RETURN e)
       RETURN {"nodes": nodes[**], edges}`;
+  const aqlBindVars: { [key: string]: string } = { '@edgeTable': edgeTableName };
+  nodeTableNames.forEach((val, index) => {
+    aqlBindVars[`@table${index}`] = val;
+  });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let newAQLNetwork: Network = { nodes: [], edges: []};
 
   try {
-    newAQLNetwork = (await api.aql(workspaceName, { query: aqlQuery, bind_vars: {} }) as Network[])[0];
+    newAQLNetwork = (await api.aql(workspaceName, { query: aqlQuery, bind_vars: aqlBindVars }) as Network[])[0];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     if (error.status === 400) {
