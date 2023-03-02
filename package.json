@@ -30,6 +30,7 @@
     "vue-tsc": "^0.40.0"
   },
   "scripts": {
-    "build": "vite build && vue-tsc --emitDeclarationOnly"
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "watch": "vite build --watch"
   }
 }
