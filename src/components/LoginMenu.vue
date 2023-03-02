@@ -1,7 +1,7 @@
 <template>
   <v-menu
     v-model="menu"
-    offset-x
+    offset-y
   >
     <template #activator="{ on }">
       <v-btn
