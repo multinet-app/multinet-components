@@ -86,6 +86,9 @@
       <v-list>
         <v-list-item link @click="exportNetwork"><v-list-item-title>Export Network</v-list-item-title></v-list-item>
         <v-list-item link @click="showTrrackVis"><v-list-item-title>Show History</v-list-item-title></v-list-item>
+        <v-list-item link @click="redirectToDocs"><v-list-item-title>Get Help</v-list-item-title></v-list-item>
+
+        
       </v-list>
     </v-menu>
     
@@ -121,6 +124,10 @@ const props = defineProps<{
 }>();
 
 const searchTerm = ref<string | undefined>(undefined);
+
+function redirectToDocs() {
+  window.location.href = 'https://multinet-app.readthedocs.io/en/latest/index.html';
+}
 </script>
 
 <style>
