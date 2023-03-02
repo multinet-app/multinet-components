@@ -10,22 +10,7 @@
       src="../assets/multinet_logo.svg"
       alt="Multinet Logo"
     >
-    <v-toolbar-title>{{ props.appName }}</v-toolbar-title>
-
-    <v-spacer />
-
-    <div>
-      <v-autocomplete
-        v-model="searchTerm"
-        :items="searchItems"
-        auto-select-first
-        dense
-        filled
-        hide-details
-        placeholder="Search For A Node"
-        @change="searchTerm !== undefined && search(searchTerm); searchTerm = undefined"
-      />
-    </div>
+    <v-toolbar-title id="title">{{ props.appName }}</v-toolbar-title>
 
     <v-tooltip bottom>
       <template v-slot:activator="{ on, attrs }">
@@ -69,6 +54,21 @@
       <span>Clear Selection</span>
     </v-tooltip>
 
+    <div>
+      <v-autocomplete
+        v-model="searchTerm"
+        :items="searchItems"
+        auto-select-first
+        dense
+        filled
+        hide-details
+        placeholder="Search For A Node"
+        @change="searchTerm !== undefined && search(searchTerm); searchTerm = undefined"
+      />
+    </div>
+
+    <v-spacer />
+
     <v-menu
       bottom
       offset-y
@@ -87,8 +87,6 @@
         <v-list-item link @click="exportNetwork"><v-list-item-title>Export Network</v-list-item-title></v-list-item>
         <v-list-item link @click="showTrrackVis"><v-list-item-title>Show History</v-list-item-title></v-list-item>
         <v-list-item link @click="redirectToDocs"><v-list-item-title>Get Help</v-list-item-title></v-list-item>
-
-        
       </v-list>
     </v-menu>
     
@@ -135,6 +133,10 @@ function redirectToDocs() {
   height: 32px;
   width: 32px;
   margin-right: 5px;
+}
+
+#title {
+  margin-right: 10px;
 }
 
 .search-box {
